@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @assignment_repo %>
+
+<div>
+  <%= link_to "Edit this assignment repo", edit_assignment_repo_path(@assignment_repo) %> |
+  <%= link_to "Back to assignment repos", assignment_repos_path %>
+
+  <%= button_to "Destroy this assignment repo", @assignment_repo, method: :delete %>
+</div>

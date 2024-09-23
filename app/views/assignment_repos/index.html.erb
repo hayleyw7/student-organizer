@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Assignment repos</h1>
+
+<div id="assignment_repos">
+  <% @assignment_repos.each do |assignment_repo| %>
+    <%= render assignment_repo %>
+    <p>
+      <%= link_to "Show this assignment repo", assignment_repo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New assignment repo", new_assignment_repo_path %>
