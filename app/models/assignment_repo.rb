@@ -1,4 +1,4 @@
-class Assignment < ApplicationRecord
-  has_many :assignment_repos
-  has_many :students, through: :assignment_repos
+class AssignmentRepo < ApplicationRecord
+  belongs_to :student
+  belongs_to :assignment
 end
