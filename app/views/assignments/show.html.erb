@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= @assignment.name %></h1>
 
-<%= render @assignment %>
+<p>
+  <strong>Due Date:</strong>
+  <%= @assignment.due_date %>
+</p>
 
-<div>
-  <%= link_to "Edit this assignment", edit_assignment_path(@assignment) %> |
-  <%= link_to "Back to assignments", assignments_path %>
-
-  <%= button_to "Destroy this assignment", @assignment, method: :delete %>
-</div>
+<%= link_to 'Edit', edit_assignment_path(@assignment), class: "btn btn-warning" %>
+<%= link_to 'Back', assignments_path, class: "btn btn-secondary" %>

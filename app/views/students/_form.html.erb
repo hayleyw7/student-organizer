@@ -1,47 +1,35 @@
-<%= form_with(model: student) do |form| %>
-  <% if student.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-        <% student.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+<%= form_with(model: student, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :slack_dm, class: 'form-label' %>
+    <%= form.text_field :slack_dm, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :slack_link, style: "display: block" %>
-    <%= form.text_field :slack_link %>
+  <div class="mb-3">
+    <%= form.label :github_profile, class: 'form-label' %>
+    <%= form.text_field :github_profile, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :github_link, style: "display: block" %>
-    <%= form.text_field :github_link %>
+  <div class="mb-3">
+    <%= form.label :replit_profile, class: 'form-label' %>
+    <%= form.text_field :replit_profile, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :replit_link, style: "display: block" %>
-    <%= form.text_field :replit_link %>
+  <div class="mb-3">
+    <%= form.label :class_name, class: 'form-label' %>
+    <%= form.text_field :class_name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :class_name, style: "display: block" %>
-    <%= form.text_field :class_name %>
+  <div class="form-check mb-3">
+    <%= form.check_box :active, class: 'form-check-input' %>
+    <%= form.label :active, class: 'form-check-label' %>
   </div>
 
-  <div>
-    <%= form.label :active, style: "display: block" %>
-    <%= form.check_box :active %>
+  <div class="mb-3">
+    <%= form.label :assignment_ids, "Assignments", class: 'form-label' %>
+    <%= form.collection_select(:assignment_ids, Assignment.all, :id, :name, { prompt: "Select Assignments" }, { multiple: true, class: 'form-control' }) %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

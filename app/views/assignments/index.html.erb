@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Assignments</h1>
 
-<div id="assignments">
-  <% @assignments.each do |assignment| %>
-    <%= render assignment %>
-    <p>
-      <%= link_to "Show this assignment", assignment %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Due Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= assignment.name %></td>
+        <td><%= assignment.due_date %></td>
+        <td>
+          <%= link_to 'Show', assignment, class: "btn btn-sm btn-info" %>
+          <%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-sm btn-warning" %>
+          <%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New assignment", new_assignment_path %>
+<%= link_to 'New Assignment', new_assignment_path, class: "btn btn-success" %>

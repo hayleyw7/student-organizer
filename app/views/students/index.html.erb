@@ -1,14 +1,32 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Students</h1>
 
-<div id="students">
-  <% @students.each do |student| %>
-    <%= render student %>
-    <p>
-      <%= link_to "Show this student", student %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Slack DM</th>
+      <th>GitHub</th>
+      <th>Replit</th>
+      <th>Class Name</th>
+      <th>Active</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= link_to "Slack DM", student.slack_dm, target: "_blank" %></td>
+        <td><%= link_to "GitHub", student.github_profile, target: "_blank" %></td>
+        <td><%= link_to "Replit", student.replit_profile, target: "_blank" %></td>
+        <td><%= student.class_name %></td>
+        <td><%= student.active? ? "Yes" : "No" %></td>
+        <td>
+          <%= link_to 'Show', student, class: "btn btn-sm btn-info" %>
+          <%= link_to 'Edit', edit_student_path(student), class: "btn btn-sm btn-warning" %>
+          <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New student", new_student_path %>
+<%= link_to 'New Student', new_student_path, class: "btn btn-success" %>

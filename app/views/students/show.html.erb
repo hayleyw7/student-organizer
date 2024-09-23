@@ -1,10 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= @student.class_name %> - <%= @student.github_profile %></h1>
 
-<%= render @student %>
+<p>
+  <strong>Slack DM:</strong>
+  <%= link_to @student.slack_dm, @student.slack_dm, target: "_blank" %>
+</p>
 
-<div>
-  <%= link_to "Edit this student", edit_student_path(@student) %> |
-  <%= link_to "Back to students", students_path %>
+<p>
+  <strong>GitHub:</strong>
+  <%= link_to @student.github_profile, @student.github_profile, target: "_blank" %>
+</p>
 
-  <%= button_to "Destroy this student", @student, method: :delete %>
-</div>
+<p>
+  <strong>Replit:</strong>
+  <%= link_to @student.replit_profile, @student.replit_profile, target: "_blank" %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @student.active? ? "Yes" : "No" %>
+</p>
+
+<h2>Assignments</h2>
+<ul>
+  <% @student.assignments.each do |assignment| %>
+    <li><%= link_to assignment.name, assignment_path(assignment) %> (Due: <%= assignment.due_date %>)</li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_student_path(@student), class: "btn btn-warning" %>
+<%= link_to 'Back', students_path, class: "btn btn-secondary" %>
