@@ -17,7 +17,7 @@
         <td><%= link_to "Slack DM", student.slack_dm, target: "_blank" %></td>
         <td><%= link_to "GitHub", student.github_profile, target: "_blank" %></td>
         <td><%= link_to "Replit", student.replit_profile, target: "_blank" %></td>
-        <td><%= student.class_name %></td>
+        <td><%= student.cohort %></td>
         <td><%= student.active? ? "Yes" : "No" %></td>
         <td>
           <%= link_to 'Show', student, class: "btn btn-sm btn-info" %>

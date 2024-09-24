@@ -1,27 +1,27 @@
 <%= form_with(model: student, local: true) do |form| %>
   <div class="mb-3">
-    <%= form.label :slack_dm, class: 'form-label' %>
+    <%= form.label :slack_dm, "Slack", class: 'form-label' %>
     <%= form.text_field :slack_dm, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :github_profile, class: 'form-label' %>
+    <%= form.label :github_profile, "GitHub", class: 'form-label' %>
     <%= form.text_field :github_profile, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :replit_profile, class: 'form-label' %>
+    <%= form.label :replit_profile, "Replit", class: 'form-label' %>
     <%= form.text_field :replit_profile, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :class_name, class: 'form-label' %>
-    <%= form.text_field :class_name, class: 'form-control' %>
+    <%= form.label :cohort, "Cohort", class: 'form-label' %>
+    <%= form.select :cohort, options_for_select(['Cohort 1', 'Cohort 2', 'Cohort 3']), {}, class: 'form-control' %>
   </div>
 
   <div class="form-check mb-3">
     <%= form.check_box :active, class: 'form-check-input' %>
-    <%= form.label :active, class: 'form-check-label' %>
+    <%= form.label :active, "Active", class: 'form-check-label' %>
   </div>
 
   <div class="mb-3">

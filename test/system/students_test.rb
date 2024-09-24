@@ -15,7 +15,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "New student"
 
     check "Active" if @student.active
-    fill_in "Class name", with: @student.class_name
+    fill_in "Class name", with: @student.cohort
     fill_in "Github link", with: @student.github_link
     fill_in "Name", with: @student.name
     fill_in "Replit link", with: @student.replit_link
@@ -31,7 +31,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "Edit this student", match: :first
 
     check "Active" if @student.active
-    fill_in "Class name", with: @student.class_name
+    fill_in "Class name", with: @student.cohort
     fill_in "Github link", with: @student.github_link
     fill_in "Name", with: @student.name
     fill_in "Replit link", with: @student.replit_link
