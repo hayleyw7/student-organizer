@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_24_000302) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_24_003434) do
   create_table "assignment_repos", force: :cascade do |t|
     t.integer "student_id", null: false
     t.integer "assignment_id", null: false
@@ -32,9 +32,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_24_000302) do
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "slack_link"
-    t.string "github_link"
-    t.string "replit_link"
-    t.string "class_name"
+    t.string "github_profile"
+    t.string "replit_profile"
+    t.string "cohort"
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

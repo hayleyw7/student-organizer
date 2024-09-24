@@ -3,7 +3,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Slack DM</th>
+      <th>Name</th> <!-- Add this for student names -->
+      <th>Slack</th>
       <th>GitHub</th>
       <th>Replit</th>
       <th>Class Name</th>
@@ -14,7 +15,8 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= link_to "Slack DM", student.slack_dm, target: "_blank" %></td>
+        <td><%= student.name %></td>
+        <td><%= link_to "Slack DM", student.slack_link, target: "_blank" %></td>
         <td><%= link_to "GitHub", student.github_profile, target: "_blank" %></td>
         <td><%= link_to "Replit", student.replit_profile, target: "_blank" %></td>
         <td><%= student.cohort %></td>

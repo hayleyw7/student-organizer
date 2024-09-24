@@ -1,18 +1,28 @@
-<h1><%= @student.cohort %> - <%= @student.github_profile %></h1>
+<h1><%= @student.name %></h1>
 
 <p>
-  <strong>Slack DM:</strong>
-  <%= link_to @student.slack_dm, @student.slack_dm, target: "_blank" %>
+  <strong>Slack DM - Channel ID:</strong>
+  <%= link_to "DM on Slack", "https://codethedream.slack.com/app_redirect?channel=#{@student.slack_link}", target: "_blank" %>
+</p>
+
+<p>
+  <strong>Slack DM - Channel ID:</strong>
+  <%= link_to "DM on Slack", "https://codethedream.slack.com/app_redirect?channel=#{@student.slack_link}", target: "_blank" %>
 </p>
 
 <p>
   <strong>GitHub:</strong>
-  <%= link_to @student.github_profile, @student.github_profile, target: "_blank" %>
+  <%= link_to "View Repositories", "https://github.com/#{@student.github_profile}?tab=repositories", target: "_blank" %>
 </p>
 
 <p>
   <strong>Replit:</strong>
-  <%= link_to @student.replit_profile, @student.replit_profile, target: "_blank" %>
+  <%= link_to "View Replit Profile", "https://replit.com/@#{@student.replit_profile}", target: "_blank" %>
+</p>
+
+<p>
+  <strong>Cohort:</strong>
+  <%= @student.cohort %>
 </p>
 
 <p>

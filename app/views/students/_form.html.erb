@@ -1,35 +1,50 @@
 <%= form_with(model: student, local: true) do |form| %>
+
+  <!-- Add Name Field -->
   <div class="mb-3">
-    <%= form.label :slack_dm, "Slack", class: 'form-label' %>
-    <%= form.text_field :slack_dm, class: 'form-control' %>
+    <%= form.label :name, "Name", class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
+  <!-- Update Slack DM Field -->
   <div class="mb-3">
-    <%= form.label :github_profile, "GitHub", class: 'form-label' %>
+    <%= form.label :slack_link, "Slack DM - Channel ID", class: 'form-label' %>
+    <%= form.text_field :slack_link, class: 'form-control' %>
+  </div>
+
+  <!-- GitHub Field -->
+  <div class="mb-3">
+    <%= form.label :github_profile, "GitHub Username", class: 'form-label' %>
     <%= form.text_field :github_profile, class: 'form-control' %>
   </div>
 
+  <!-- Replit Field -->
   <div class="mb-3">
-    <%= form.label :replit_profile, "Replit", class: 'form-label' %>
+    <%= form.label :replit_profile, "Replit Username", class: 'form-label' %>
     <%= form.text_field :replit_profile, class: 'form-control' %>
   </div>
 
+  <!-- Cohort Dropdown -->
   <div class="mb-3">
     <%= form.label :cohort, "Cohort", class: 'form-label' %>
     <%= form.select :cohort, options_for_select(['Cohort 1', 'Cohort 2', 'Cohort 3']), {}, class: 'form-control' %>
   </div>
 
+  <!-- Active Checkbox -->
   <div class="form-check mb-3">
     <%= form.check_box :active, class: 'form-check-input' %>
     <%= form.label :active, "Active", class: 'form-check-label' %>
   </div>
 
+  <!-- Assignments Dropdown -->
   <div class="mb-3">
     <%= form.label :assignment_ids, "Assignments", class: 'form-label' %>
     <%= form.collection_select(:assignment_ids, Assignment.all, :id, :name, { prompt: "Select Assignments" }, { multiple: true, class: 'form-control' }) %>
   </div>
 
+  <!-- Submit Button -->
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
   </div>
+
 <% end %>
